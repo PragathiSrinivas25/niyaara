@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Niyaara | Where Hope Meets Direction</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "primary-container": "#2d3e35",
+                        "on-surface-variant": "#434844",
+                        "on-surface": "#1d1c0d",
+                        "primary-fixed-dim": "#b8cbbf",
+                        "surface": "#fefae0",
+                        "tertiary-container": "#563200",
+                        "outline-variant": "#c3c8c3",
+                        "primary-fixed": "#d4e7da",
+                        "on-tertiary-container": "#d39956",
+                        "outline": "#737874",
+                        "on-secondary-container": "#703800",
+                        "on-primary-fixed": "#0e1f17",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ffdcc4",
+                        "surface-bright": "#fefae0",
+                        "surface-container": "#f2efd5",
+                        "secondary": "#924c00",
+                        "on-tertiary-fixed": "#2b1700",
+                        "inverse-surface": "#323120",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e7e3ca",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#ede9cf",
+                        "on-secondary-fixed": "#2f1400",
+                        "tertiary-fixed-dim": "#faba75",
+                        "on-primary-fixed-variant": "#394b41",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#fda055",
+                        "surface-tint": "#516258",
+                        "primary": "#182820",
+                        "surface-container-highest": "#e7e3ca",
+                        "tertiary-fixed": "#ffdcbb",
+                        "inverse-on-surface": "#f5f1d8",
+                        "surface-dim": "#dedbc2",
+                        "inverse-primary": "#b8cbbf",
+                        "on-background": "#1d1c0d",
+                        "surface-container-low": "#f8f4db",
+                        "on-primary-container": "#96a99d",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "background": "#fefae0",
+                        "secondary-fixed-dim": "#ffb781",
+                        "tertiary": "#381f00",
+                        "on-error-container": "#93000a",
+                        "golden-oak": "#775A1A"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "2rem",
+                        "xl": "0.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "80px",
+                        "margin-mobile": "20px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["EB Garamond"],
+                        "display-lg-mobile": ["EB Garamond"],
+                        "headline-md": ["EB Garamond"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["EB Garamond"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["48px", { "lineHeight": "56px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "headline-md": ["36px", { "lineHeight": "44px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "32px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "display-lg": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+        }
+
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .editorial-image-overlay {
+            background: linear-gradient(to bottom, rgba(29, 28, 13, 0.1), rgba(29, 28, 13, 0.4));
+        }
+
+        .text-golden-oak {
+            color: #775A1A;
+        }
+
+        .bg-golden-oak {
+            background-color: #775A1A;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-container/30">
+    <!-- TopNavBar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md">
+        <nav
+            class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-unit max-w-[1440px] mx-auto">
+            <a class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary tracking-tight"
+                href="#">Niyaara</a>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="font-label-sm text-label-sm text-primary border-b border-primary/20 pb-1 hover:text-primary transition-colors duration-300"
+                    href="#mission">Mission</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="#events">Events</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="#directory">Directory</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="#resources">Resources</a>
+            </div>
+            <button
+                class="bg-primary text-on-primary px-6 py-2.5 font-label-sm text-label-sm rounded-lg hover:opacity-90 transition-opacity duration-300">
+                Join Community
+            </button>
+        </nav>
+    </header>
+    <main class="overflow-x-hidden">
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center pt-20">
+            <div class="absolute inset-0 z-0">
+                <img alt="Diverse visionary leaders collaborating" class="w-full h-full object-cover grayscale-[20%]"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHBieGMTT5WNicQPosoX5kYi_BUjz2Qfk6ukgc6GkCiM8R5eYXRjnxH2cOGzprZsE9FzeZED5mfQ0CCdaGFYV7FB801KahMCCIlo5tzMS0nLoW13V41FLlRch2cqYeCd6r9SvgbN_yCsK73m2RdtS9rqQN2z6jh7UReVR7rrlbJ0dq-7sLVo79-WNelKaALxJeVKW1Rbcs8JmdY-5LyZM0gEdLOUMVR81flDorO1b8NWtF9KhKosir_vSUQUm0cxuQ6-dXE2dFyc0k" />
+                <div class="absolute inset-0 bg-surface/40 backdrop-blur-[2px]"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/60 to-transparent"></div>
+            </div>
+            <div
+                class="relative z-10 w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                <div class="md:col-span-8 lg:col-span-7 space-y-10 reveal-up">
+                    <h1
+                        class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary leading-tight">
+                        Where hope meets direction, and purpose finds home.
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        An intentional collaborative ecosystem designed to nurture the intellectual and social capital
+                        of our community partners.
+                    </p>
+                    <div class="pt-6">
+                        <button
+                            class="bg-primary text-on-primary px-10 py-5 font-label-sm text-label-sm rounded-lg hover:shadow-xl transition-all duration-300">
+                            Join the community
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Impact Dashboard (Updated Section) -->
+        <section class="py-section-gap relative overflow-hidden bg-surface-container-lowest">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-golden-oak/5 rounded-full blur-[100px] -mr-48 -mt-48"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-[100px] -ml-48 -mb-48">
+            </div>
+            <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+                <div class="text-center mb-16 reveal-up">
+                    <span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-golden-oak mb-4 block">The
+                        Measure of Change</span>
+                    <h2 class="font-headline-lg text-headline-lg text-primary">Our Collective Impact</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 reveal-up" style="transition-delay: 200ms;">
+                    <!-- Metric 1 -->
+                    <div
+                        class="group bg-surface border border-outline-variant/30 p-10 rounded-lg hover:border-golden-oak transition-all duration-500 hover:shadow-sm">
+                        <div class="flex items-center justify-between mb-8">
+                            <span class="material-symbols-outlined text-golden-oak text-4xl"
+                                data-icon="person_celebrate">person_celebrate</span>
+                            <span class="text-label-sm font-label-sm text-on-surface-variant/40">Real-time Data</span>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-display-lg text-5xl text-primary flex items-center gap-1">
+                                <span>1,200</span><span class="text-golden-oak text-3xl">+</span>
+                            </h3>
+                            <p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">
+                                Members Mentored</p>
+                            <p class="text-sm text-on-surface-variant/70 pt-4 border-t border-outline-variant/20">
+                                Guiding individuals towards their unique purpose through structured pathways.</p>
+                        </div>
+                    </div>
+                    <!-- Metric 2 -->
+                    <div
+                        class="group bg-surface border border-outline-variant/30 p-10 rounded-lg hover:border-golden-oak transition-all duration-500 hover:shadow-sm">
+                        <div class="flex items-center justify-between mb-8">
+                            <span class="material-symbols-outlined text-golden-oak text-4xl"
+                                data-icon="model_training">model_training</span>
+                            <span class="text-label-sm font-label-sm text-on-surface-variant/40">Growth Cycles</span>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-display-lg text-5xl text-primary flex items-center gap-1">
+                                <span>450</span><span class="text-golden-oak text-3xl">+</span>
+                            </h3>
+                            <p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">
+                                Workshops Completed</p>
+                            <p class="text-sm text-on-surface-variant/70 pt-4 border-t border-outline-variant/20">
+                                Immersive sessions focused on leadership, strategy, and community building.</p>
+                        </div>
+                    </div>
+                    <!-- Metric 3 -->
+                    <div
+                        class="group bg-surface border border-outline-variant/30 p-10 rounded-lg hover:border-golden-oak transition-all duration-500 hover:shadow-sm">
+                        <div class="flex items-center justify-between mb-8">
+                            <span class="material-symbols-outlined text-golden-oak text-4xl"
+                                data-icon="account_balance_wallet">account_balance_wallet</span>
+                            <span class="text-label-sm font-label-sm text-on-surface-variant/40">Asset Liquidity</span>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-display-lg text-5xl text-primary flex items-center gap-1">
+                                <span class="text-golden-oak text-3xl">$</span><span>2.4M</span>
+                            </h3>
+                            <p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">
+                                Capital Raised</p>
+                            <p class="text-sm text-on-surface-variant/70 pt-4 border-t border-outline-variant/20">
+                                Facilitating financial flow for impactful community-led projects and startups.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section class="py-section-gap bg-surface" id="mission">
+            <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+                    <div class="md:col-span-5 reveal-up">
+                        <span
+                            class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-golden-oak mb-6 block">Our
+                            Vision</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary mb-8">About Niyaara</h2>
+                        <div class="space-y-6 text-on-surface-variant font-body-lg text-body-lg">
+                            <p>Niyaara is more than an organization; it is a collaborative ecosystem designed to nurture
+                                the intellectual and social capital of our community partners.</p>
+                            <p>We operate at the intersection of intentional growth and leadership, providing the
+                                scaffolding necessary for individuals to build sustainable impact through shared wisdom.
+                            </p>
+                        </div>
+                        <div class="mt-12 p-8 border-l-2 border-golden-oak bg-surface-container-low reveal-up"
+                            style="transition-delay: 200ms;">
+                            <p class="font-headline-md text-headline-md text-primary italic leading-relaxed">
+                                "Empower 10,000 individuals by 2030."
+                            </p>
+                            <p class="mt-4 font-label-sm text-label-sm text-golden-oak uppercase tracking-widest">— The
+                                Niyaara Mandate</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-6 md:col-start-7 mt-12 md:mt-0 relative reveal-up"
+                        style="transition-delay: 400ms;">
+                        <div class="aspect-[4/5] overflow-hidden rounded-lg">
+                            <img alt="Collaborative workshop detail"
+                                class="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-1000"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs_xwxOpG72jqV6AELevjpRYFGakkGnHQxt-Pt3hCbJpc92lHPP1olijbx-Y3gVJH_MrcnWeoOGL35MXe_CDx26BzbGF6PMFaxAWN-OI6mvZsmdi9XtjZ6nmTpe0GnHvw8pqlEoxFbg-CU-RNK-_FYHmkjJIYHcBqqPtUTHy4Cw6MC33jhqQrL_jj_S9_70f1hoOE_4j4hJhzmKAxa6jGe41SGkxe-_2OoLDdzW6IB6gD2L9Ip4jzqetgEbiKpfJO8szQROqXLYNe1" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Success Stories (New Section) -->
+        <section class="py-section-gap bg-surface-container-low overflow-hidden">
+            <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 reveal-up">
+                    <div class="max-w-xl">
+                        <span
+                            class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-golden-oak mb-4 block">Voices
+                            of Impact</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary">Success Stories</h2>
+                    </div>
+                    <div class="flex gap-4 mt-8 md:mt-0">
+                        <button
+                            class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+                            <span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+                        </button>
+                        <button
+                            class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+                            <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter reveal-up" style="transition-delay: 200ms;">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-surface p-12 rounded-lg shadow-sm flex flex-col justify-between h-full">
+                        <div>
+                            <span class="material-symbols-outlined text-golden-oak text-5xl mb-8"
+                                data-icon="format_quote">format_quote</span>
+                            <p class="font-headline-md text-primary italic leading-relaxed mb-10">
+                                "Finding Niyaara was the turning point for my initiative. The mentorship didn't just
+                                give me advice; it gave me a structural framework that turned a passion project into a
+                                sustainable community foundation."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-6 border-t border-outline-variant/30 pt-8">
+                            <img alt="Elena Vance" class="w-16 h-16 rounded-full object-cover grayscale"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9zS-eDv4pREFImXsdSfRyxMCiARakXvp-9wpobKkBwHKA9uiMsJyA_SI8Wl0HZxMHW3mK_d8uzD673CfRJe8VyPn1G7nC82U0hf4CI9F_JmkshSXKJDMO2OO2q10kbez83O606pSt8L7qPUPp2FoLjs3A-gj9dsTsTE5eCeYo44DvZkT9nghrsx7DCMh2TYoFNHlklRNrzczArMkMOyS0dYOrbBWgm7ncc-aEhdPmobAGVOiPbxHmfUXdUngDyOcXPdfDTnZ3Cz6m" />
+                            <div>
+                                <h4
+                                    class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">
+                                    Elena Vance</h4>
+                                <p class="text-sm text-on-surface-variant">Urban Renewal Lead</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-surface p-12 rounded-lg shadow-sm flex flex-col justify-between h-full">
+                        <div>
+                            <span class="material-symbols-outlined text-golden-oak text-5xl mb-8"
+                                data-icon="format_quote">format_quote</span>
+                            <p class="font-headline-md text-primary italic leading-relaxed mb-10">
+                                "The collaborative ecosystem here is unmatched. It’s rare to find a space where
+                                intellectual rigor meets genuine empathy so seamlessly. My growth as a leader has
+                                tripled in just one year."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-6 border-t border-outline-variant/30 pt-8">
+                            <img alt="Marcus Chen" class="w-16 h-16 rounded-full object-cover grayscale"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAGZW_Y_s3jyZLHs_H6tByfjMBewS6ukYhHB6nrgra7sK-P5RVKqXHBOrYCH6HXnGutfd_86Nkofk6BGh3lbTsz9R5CayxUmSFseuTPCiqT9NizdQ1G6BUmA1oAzizGkqqwdprDTgF5oVOGYX-W9K3VkXx9TrvotKMwroDioGOLs7fN7XoDbpnu-532PvLhAHaooOScNZcLFE3ZEVNn1mlhoKuHb1_e3JP-yEyQ2KrzVCvoqJydshggPDufb5KAMATZkyQK4g9XDDl" />
+                            <div>
+                                <h4
+                                    class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">
+                                    Marcus Chen</h4>
+                                <p class="text-sm text-on-surface-variant">Education Catalyst</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Community Spotlight (New Section) -->
+        <section class="py-section-gap">
+            <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    <div class="lg:col-span-7 reveal-up">
+                        <div class="relative group cursor-pointer overflow-hidden rounded-lg">
+                            <img alt="Spotlight Project"
+                                class="w-full h-auto aspect-video object-cover transition-transform duration-1000 group-hover:scale-105"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHBieGMTT5WNicQPosoX5kYi_BUjz2Qfk6ukgc6GkCiM8R5eYXRjnxH2cOGzprZsE9FzeZED5mfQ0CCdaGFYV7FB801KahMCCIlo5tzMS0nLoW13V41FLlRch2cqYeCd6r9SvgbN_yCsK73m2RdtS9rqQN2z6jh7UReVR7rrlbJ0dq-7sLVo79-WNelKaALxJeVKW1Rbcs8JmdY-5LyZM0gEdLOUMVR81flDorO1b8NWtF9KhKosir_vSUQUm0cxuQ6-dXE2dFyc0k" />
+                            <div class="absolute inset-0 bg-primary/20 group-hover:bg-primary/0 transition-colors">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 space-y-8 reveal-up" style="transition-delay: 200ms;">
+                        <span
+                            class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-golden-oak block">Member
+                            Spotlight</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary leading-tight">The Garden of Wisdom
+                            Initiative</h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant">
+                            Led by Amara Okafor, this project has successfully restored three urban libraries into
+                            multi-generational learning hubs. Through the Niyaara framework, they secured $200k in
+                            grants and engaged over 100 local volunteers.
+                        </p>
+                        <div class="pt-4">
+                            <button
+                                class="group flex items-center gap-3 font-label-sm text-label-sm text-primary uppercase tracking-[0.2em]">
+                                Read the Narrative
+                                <span
+                                    class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform"
+                                    data-icon="arrow_right_alt">arrow_right_alt</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Events Section -->
+        <section class="py-section-gap bg-surface-container-low" id="events">
+            <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="flex justify-between items-end mb-16 reveal-up">
+                    <div>
+                        <span
+                            class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-golden-oak mb-4 block">Calendar</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary">Community events</h2>
+                    </div>
+                    <button
+                        class="hidden md:flex items-center gap-2 group font-label-sm text-label-sm text-primary uppercase tracking-widest">
+                        View All
+                        <span
+                            class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform"
+                            data-icon="arrow_forward">arrow_forward</span>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter reveal-up" style="transition-delay: 200ms;">
+                    <!-- Event Card 1 -->
+                    <div class="group cursor-pointer">
+                        <div class="border-t border-outline-variant/30 pt-8 space-y-6">
+                            <div class="flex justify-between items-start">
+                                <span
+                                    class="font-label-sm text-label-sm bg-surface-container-high px-3 py-1 rounded">OCT
+                                    14</span>
+                                <span
+                                    class="material-symbols-outlined text-golden-oak opacity-0 group-hover:opacity-100 transition-opacity"
+                                    data-icon="north_east">north_east</span>
+                            </div>
+                            <h3
+                                class="font-headline-md text-headline-md text-primary group-hover:text-golden-oak transition-colors">
+                                Harvest of Hope Circle</h3>
+                            <p class="text-on-surface-variant line-clamp-2">A quarterly gathering for community leads to
+                                share harvest stories and collaborative growth strategies.</p>
+                        </div>
+                    </div>
+                    <!-- Event Card 2 -->
+                    <div class="group cursor-pointer">
+                        <div class="border-t border-outline-variant/30 pt-8 space-y-6">
+                            <div class="flex justify-between items-start">
+                                <span
+                                    class="font-label-sm text-label-sm bg-surface-container-high px-3 py-1 rounded">NOV
+                                    02</span>
+                                <span
+                                    class="material-symbols-outlined text-golden-oak opacity-0 group-hover:opacity-100 transition-opacity"
+                                    data-icon="north_east">north_east</span>
+                            </div>
+                            <h3
+                                class="font-headline-md text-headline-md text-primary group-hover:text-golden-oak transition-colors">
+                                Digital Pathways Bootcamp</h3>
+                            <p class="text-on-surface-variant line-clamp-2">An intensive workshop on leveraging emerging
+                                technologies for social impact and community resilience.</p>
+                        </div>
+                    </div>
+                    <!-- Event Card 3 -->
+                    <div class="group cursor-pointer">
+                        <div class="border-t border-outline-variant/30 pt-8 space-y-6">
+                            <div class="flex justify-between items-start">
+                                <span
+                                    class="font-label-sm text-label-sm bg-surface-container-high px-3 py-1 rounded">DEC
+                                    12</span>
+                                <span
+                                    class="material-symbols-outlined text-golden-oak opacity-0 group-hover:opacity-100 transition-opacity"
+                                    data-icon="north_east">north_east</span>
+                            </div>
+                            <h3
+                                class="font-headline-md text-headline-md text-primary group-hover:text-golden-oak transition-colors">
+                                Leadership Symposium</h3>
+                            <p class="text-on-surface-variant line-clamp-2">The annual Niyaara summit featuring keynote
+                                speakers and roundtable discussions on sustainable philanthropy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Member Directory -->
+        <section class="py-section-gap bg-surface" id="directory">
+            <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop text-center mb-16 reveal-up">
+                <span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-golden-oak mb-4 block">Faces of
+                    Change</span>
+                <h2 class="font-headline-lg text-headline-lg text-primary">Members of Niyaara</h2>
+            </div>
+            <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 reveal-up"
+                style="transition-delay: 200ms;">
+                <!-- Member 1 -->
+                <div class="text-center group">
+                    <div
+                        class="relative mx-auto w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-6 ring-1 ring-outline-variant/30 ring-offset-4 ring-offset-surface transition-all group-hover:ring-golden-oak/50">
+                        <img alt="Elena Vance"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9zS-eDv4pREFImXsdSfRyxMCiARakXvp-9wpobKkBwHKA9uiMsJyA_SI8Wl0HZxMHW3mK_d8uzD673CfRJe8VyPn1G7nC82U0hf4CI9F_JmkshSXKJDMO2OO2q10kbez83O606pSt8L7qPUPp2FoLjs3A-gj9dsTsTE5eCeYo44DvZkT9nghrsx7DCMh2TYoFNHlklRNrzczArMkMOyS0dYOrbBWgm7ncc-aEhdPmobAGVOiPbxHmfUXdUngDyOcXPdfDTnZ3Cz6m" />
+                    </div>
+                    <h4 class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">Elena Vance
+                    </h4>
+                    <p class="text-on-surface-variant text-sm mt-1">Community Director</p>
+                </div>
+                <!-- Member 2 -->
+                <div class="text-center group">
+                    <div
+                        class="relative mx-auto w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-6 ring-1 ring-outline-variant/30 ring-offset-4 ring-offset-surface transition-all group-hover:ring-golden-oak/50">
+                        <img alt="Marcus Chen"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAGZW_Y_s3jyZLHs_H6tByfjMBewS6ukYhHB6nrgra7sK-P5RVKqXHBOrYCH6HXnGutfd_86Nkofk6BGh3lbTsz9R5CayxUmSFseuTPCiqT9NizdQ1G6BUmA1oAzizGkqqwdprDTgF5oVOGYX-W9K3VkXx9TrvotKMwroDioGOLs7fN7XoDbpnu-532PvLhAHaooOScNZcLFE3ZEVNn1mlhoKuHb1_e3JP-yEyQ2KrzVCvoqJydshggPDufb5KAMATZkyQK4g9XDDl" />
+                    </div>
+                    <h4 class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">Marcus Chen
+                    </h4>
+                    <p class="text-on-surface-variant text-sm mt-1">Strategy Lead</p>
+                </div>
+                <!-- Member 3 -->
+                <div class="text-center group">
+                    <div
+                        class="relative mx-auto w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-6 ring-1 ring-outline-variant/30 ring-offset-4 ring-offset-surface transition-all group-hover:ring-golden-oak/50">
+                        <img alt="Amara Okafor"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAowIbZJpbCgJwadqKF3UACdXXBpULc_2Z6u7Cagtq2Ro9bXfNwoXnLQpNqg9SsOJpkJVUKhBesYoNfDRD5CNzO5j-4HXxlBR2bISqvhZ31NiKDmFGgfbUwyQvmMYCCEB-Txd1J_zJ4pEKrtvO0dO6i6VVLSEktz2aAMgFKSiHq07ni4_LqL_lSzWDJpcN3j2hljQIswofNVA-_cqwsTEm_yASqypK-O4T_t3BqtYBIQekE7DIHAEtjxH3kQjrs0L7Ghts0Z6hf3-1E" />
+                    </div>
+                    <h4 class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">Amara
+                        Okafor</h4>
+                    <p class="text-on-surface-variant text-sm mt-1">Programs Coordinator</p>
+                </div>
+                <!-- Member 4 -->
+                <div class="text-center group">
+                    <div
+                        class="relative mx-auto w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-6 ring-1 ring-outline-variant/30 ring-offset-4 ring-offset-surface transition-all group-hover:ring-golden-oak/50">
+                        <img alt="Julian Thorne"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWacWg3ni4mdq8io7FMcnNeEctcF6bOjeqIDqbkRQJFV8PZq7NKFKwIE-NOgsox7iUpxT20XHs6zUYFSwRH-PRjNBRQxmk3N-rrjjFDoyriLe-vlzXIjIwqKeSaidFD3k7HVIBVmv6i926uR4ytv6ncMXeT48ETMTKPevHuJxyHSwpblWMrRIrNaUIcQdoKz5wIuBCWyQv8HeKzXhG_YsnFwLfp3sBBEYpV5UybjLBoJ03tu-qmDUddsBinkSZMWn7iRFuI5Z0YTD3" />
+                    </div>
+                    <h4 class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">Julian
+                        Thorne</h4>
+                    <p class="text-on-surface-variant text-sm mt-1">Partnerships</p>
+                </div>
+                <!-- Member 5 -->
+                <div class="text-center group">
+                    <div
+                        class="relative mx-auto w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-6 ring-1 ring-outline-variant/30 ring-offset-4 ring-offset-surface transition-all group-hover:ring-golden-oak/50">
+                        <img alt="Sarah Jenkins"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuColLg80dyPqTR-F5DBLeRdnoFQohcejMARUdHjOlecUxboR5yR23nEGHpcu0POLn1SgvbObueJU0zn9_t9rvL-XnPzh6gXz4civlQ8j-ovXxc-pMVI7a3ZlBNNYBBlNdEU8aG5n6VG70002j-xB4-Z54pOiG_0d1Voe7VMbpYCm-Iim1TSIr-AIk0t8GvC2PyVfEBjfPGQriCutBoYx3MuJK40fbLeho5H_YcyBWP0wKw4nTvcQ8uFnq4Wa908I3lA_o9cWtaoStB9" />
+                    </div>
+                    <h4 class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">Sarah
+                        Jenkins</h4>
+                    <p class="text-on-surface-variant text-sm mt-1">Operations</p>
+                </div>
+            </div>
+        </section>
+        <!-- Resources Section (Enhanced) -->
+        <section class="py-section-gap bg-surface-container" id="resources">
+            <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+                    <div class="md:col-span-4 reveal-up">
+                        <h2 class="font-headline-lg text-headline-lg text-primary mb-6">Library Preview</h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant pr-8">
+                            Our intellectual asset library provides members with curated frameworks and practical
+                            toolkits to scale impact effectively.
+                        </p>
+                        <div class="mt-8">
+                            <button
+                                class="bg-primary text-on-primary px-8 py-4 font-label-sm text-label-sm rounded-lg hover:opacity-90 transition-all">
+                                Browse All Resources
+                            </button>
+                        </div>
+                    </div>
+                    <div class="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8 reveal-up"
+                        style="transition-delay: 300ms;">
+                        <!-- Resource 1 -->
+                        <div
+                            class="bg-surface p-10 rounded-lg group transition-all duration-500 hover:bg-golden-oak hover:-translate-y-2 relative overflow-hidden">
+                            <div class="relative z-10">
+                                <span
+                                    class="material-symbols-outlined text-golden-oak text-4xl mb-6 block group-hover:text-white transition-colors"
+                                    data-icon="analytics">analytics</span>
+                                <h4
+                                    class="font-headline-md text-[24px] text-primary mb-4 group-hover:text-white transition-colors">
+                                    Impact Analytics 1.0</h4>
+                                <p class="text-on-surface-variant group-hover:text-white/80 transition-colors mb-6">A
+                                    rigorous system to measure qualitative and quantitative success of social
+                                    initiatives.</p>
+                                <div
+                                    class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2 text-white font-label-sm uppercase tracking-widest text-xs">
+                                    View PDF Guide <span class="material-symbols-outlined text-sm"
+                                        data-icon="open_in_new">open_in_new</span>
+                                </div>
+                            </div>
+                            <div
+                                class="absolute -right-8 -bottom-8 text-golden-oak/5 group-hover:text-white/10 transition-colors">
+                                <span class="material-symbols-outlined text-[140px]"
+                                    data-icon="analytics">analytics</span>
+                            </div>
+                        </div>
+                        <!-- Resource 2 -->
+                        <div
+                            class="bg-surface p-10 rounded-lg group transition-all duration-500 hover:bg-golden-oak hover:-translate-y-2 relative overflow-hidden">
+                            <div class="relative z-10">
+                                <span
+                                    class="material-symbols-outlined text-golden-oak text-4xl mb-6 block group-hover:text-white transition-colors"
+                                    data-icon="groups">groups</span>
+                                <h4
+                                    class="font-headline-md text-[24px] text-primary mb-4 group-hover:text-white transition-colors">
+                                    Team Governance</h4>
+                                <p class="text-on-surface-variant group-hover:text-white/80 transition-colors mb-6">
+                                    Onboarding structures for building resilient, high-performance community teams.</p>
+                                <div
+                                    class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2 text-white font-label-sm uppercase tracking-widest text-xs">
+                                    Access Toolkit <span class="material-symbols-outlined text-sm"
+                                        data-icon="open_in_new">open_in_new</span>
+                                </div>
+                            </div>
+                            <div
+                                class="absolute -right-8 -bottom-8 text-golden-oak/5 group-hover:text-white/10 transition-colors">
+                                <span class="material-symbols-outlined text-[140px]" data-icon="groups">groups</span>
+                            </div>
+                        </div>
+                        <!-- Resource 3 -->
+                        <div
+                            class="bg-surface p-10 rounded-lg group transition-all duration-500 hover:bg-golden-oak hover:-translate-y-2 relative overflow-hidden">
+                            <div class="relative z-10">
+                                <span
+                                    class="material-symbols-outlined text-golden-oak text-4xl mb-6 block group-hover:text-white transition-colors"
+                                    data-icon="calendar_month">calendar_month</span>
+                                <h4
+                                    class="font-headline-md text-[24px] text-primary mb-4 group-hover:text-white transition-colors">
+                                    Master Calendars</h4>
+                                <p class="text-on-surface-variant group-hover:text-white/80 transition-colors mb-6">
+                                    Strategic planning tools to synchronize events, fundraising, and outreach.</p>
+                                <div
+                                    class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2 text-white font-label-sm uppercase tracking-widest text-xs">
+                                    View Templates <span class="material-symbols-outlined text-sm"
+                                        data-icon="open_in_new">open_in_new</span>
+                                </div>
+                            </div>
+                            <div
+                                class="absolute -right-8 -bottom-8 text-golden-oak/5 group-hover:text-white/10 transition-colors">
+                                <span class="material-symbols-outlined text-[140px]"
+                                    data-icon="calendar_month">calendar_month</span>
+                            </div>
+                        </div>
+                        <!-- Resource 4 -->
+                        <div
+                            class="bg-surface p-10 rounded-lg group transition-all duration-500 hover:bg-golden-oak hover:-translate-y-2 relative overflow-hidden">
+                            <div class="relative z-10">
+                                <span
+                                    class="material-symbols-outlined text-golden-oak text-4xl mb-6 block group-hover:text-white transition-colors"
+                                    data-icon="auto_stories">auto_stories</span>
+                                <h4
+                                    class="font-headline-md text-[24px] text-primary mb-4 group-hover:text-white transition-colors">
+                                    Knowledge Base</h4>
+                                <p class="text-on-surface-variant group-hover:text-white/80 transition-colors mb-6">A
+                                    curated library of literature and case studies on intentional community building.
+                                </p>
+                                <div
+                                    class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2 text-white font-label-sm uppercase tracking-widest text-xs">
+                                    Start Reading <span class="material-symbols-outlined text-sm"
+                                        data-icon="open_in_new">open_in_new</span>
+                                </div>
+                            </div>
+                            <div
+                                class="absolute -right-8 -bottom-8 text-golden-oak/5 group-hover:text-white/10 transition-colors">
+                                <span class="material-symbols-outlined text-[140px]"
+                                    data-icon="auto_stories">auto_stories</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Final CTA Section -->
+        <section class="py-section-gap">
+            <div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="bg-primary text-on-primary rounded-lg p-12 md:p-24 relative overflow-hidden reveal-up">
+                    <div
+                        class="absolute top-0 right-0 w-1/3 h-full bg-golden-oak opacity-20 blur-[120px] rounded-full translate-x-1/2">
+                    </div>
+                    <div class="relative z-10 max-w-2xl">
+                        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-8 leading-tight">Join
+                            the community</h2>
+                        <p class="font-body-lg text-body-lg text-on-primary/70 mb-12">
+                            Ready to transform your vision into a sustainable reality? Join a collective of leaders
+                            dedicated to intentional impact.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-6">
+                            <button
+                                class="bg-on-primary text-primary px-10 py-5 font-label-sm text-label-sm rounded-lg hover:bg-primary-fixed transition-colors">
+                                Become a Member
+                            </button>
+                            <button
+                                class="border border-on-primary/30 text-on-primary px-10 py-5 font-label-sm text-label-sm rounded-lg hover:bg-white/5 transition-colors">
+                                Contact Support
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container">
+        <div
+            class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap max-w-[1440px] mx-auto border-t border-outline-variant/30">
+            <div class="md:col-span-4 space-y-6">
+                <h3 class="font-headline-md text-headline-md text-primary">Niyaara</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+                    Cultivating community with intention and high-fidelity leadership frameworks.
+                </p>
+            </div>
+            <div class="md:col-span-2 md:col-start-6 space-y-4">
+                <h5 class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">Foundation</h5>
+                <nav class="flex flex-col gap-3">
+                    <a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-golden-oak transition-all duration-300"
+                        href="#">The Mission</a>
+                    <a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-golden-oak transition-all duration-300"
+                        href="#">Upcoming Events</a>
+                </nav>
+            </div>
+            <div class="md:col-span-2 space-y-4">
+                <h5 class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">Connect</h5>
+                <nav class="flex flex-col gap-3">
+                    <a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-golden-oak transition-all duration-300"
+                        href="#">Member Access</a>
+                    <a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-golden-oak transition-all duration-300"
+                        href="#">Inquiries</a>
+                </nav>
+            </div>
+            <div class="md:col-span-2 space-y-4">
+                <h5 class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">Legal</h5>
+                <nav class="flex flex-col gap-3">
+                    <a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-golden-oak transition-all duration-300"
+                        href="#">Privacy</a>
+                </nav>
+            </div>
+            <div class="md:col-span-12 pt-12 border-t border-outline-variant/20 mt-12">
+                <p class="font-body-md text-body-md text-on-surface-variant">© 2024 Niyaara. Cultivating community with
+                    intention.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Intersection Observer for Reveal Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+        // Smooth Scroll handling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === "#") return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
